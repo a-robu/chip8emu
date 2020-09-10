@@ -5,7 +5,7 @@
 
 This project is a [CHIP-8](https://en.wikipedia.org/wiki/CHIP-8) interpreter written in Python. CHIP-8 is an interpreted language from the 70's that can run simple video-games.
 
-Making a CHIP-8 interpreter is a classing learner's programming project. I made mine in 2013, after [green-snake](https://github.com/a-robu/green-snake) and [py-asteroird](https://github.com/a-robu/py-asteroird).
+Making a CHIP-8 interpreter is a classing learner's programming project. I made mine (the implementation in this repository) in 2013, after making [green-snake](https://github.com/a-robu/green-snake) and [py-asteroird](https://github.com/a-robu/py-asteroird).
 
 For convenience, I included [Zophar's Chip 8 rom pack](https://www.zophar.net/pdroms/chip8/chip-8-games-pack.html) in [zophars-rom-pack/](zophars-rom-pack/).
 
