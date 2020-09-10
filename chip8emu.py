@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import os
 import sys
 import random
@@ -82,6 +84,7 @@ def main():
     pygame.init()
     global window
     window = pygame.display.set_mode((disp_width * ZOOM, disp_height * ZOOM))
+    pygame.display.set_caption(u'🕹️ CHIP-8 Emu')
 
     root = Tkinter.Tk()
     root.withdraw()
