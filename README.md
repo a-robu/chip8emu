@@ -15,7 +15,7 @@ This interpreter maps them to QWERTY keyboards as shown in the following drawing
 
 # Running from Source
 
-The code is written in Python 2. Install the required dependencies in a _virtualenv_ with the following commands.
+This assumes that Python 2 is installed. Install the required dependencies in a _virtualenv_ with the following commands.
 
 ```bash
 virtualenv venv
