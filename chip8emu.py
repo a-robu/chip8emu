@@ -8,7 +8,6 @@ import beep
 MATCH_VBEMU_MODE = False
 BACK_COLOR = (36, 60, 165)
 FORE_COLOR = (40, 150, 220)
-pygame.init()
 
 ZOOM = 10
 disp_width = 64
@@ -78,6 +77,7 @@ def print_ch(addr, length):
         print ''.join(l)
 
 def main():
+    pygame.init()
     global window
     window = pygame.display.set_mode((disp_width * ZOOM, disp_height * ZOOM))
 
