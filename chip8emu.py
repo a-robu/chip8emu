@@ -19,20 +19,10 @@ window = pygame.display.set_mode((disp_width * ZOOM, disp_height * ZOOM))
 root = Tkinter.Tk()
 root.withdraw()
 
-filename = "E:/Dropbox/Programming Projects/2013 Q2/tetris.c8"
-filename = "E:/Dropbox/Programming Projects/2013 Q2/invaders.c8"
-#filename = "E:/Dropbox/Programming Projects/2013 Q2/pong2.c8"
-
-'''
-filename = "rs-chip8asm\minimal.c8"
-
-import subprocess
-a = subprocess.call([r'rs-chip8asm\mchipper.exe',
-                     r'rs-chip8asm\minimal.c8',
-                     r'rs-chip8asm\minimal.chp'])
-
-#'''
-filename = tkFileDialog.askopenfilename()
+if len(sys.argv) >= 2:
+    filename = sys.argv[1]
+else:
+    filename = tkFileDialog.askopenfilename()
 f = open(filename, 'rb')
 program_data = f.read()
 f.close()
