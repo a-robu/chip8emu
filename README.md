@@ -7,4 +7,8 @@ Making a CHIP-8 interpreter is a classing learner's programming project. I made 
 
 # How to Play
 
+Computers that ran CHIP-8 had a hexadecimal keyboard with keys from 1 to F, arranged in a 4x4 grid.
+
+This interpreter maps them to QWERTY keyboards as shown in the following drawing.
+
 ![keybindings](keybindings.gif)
