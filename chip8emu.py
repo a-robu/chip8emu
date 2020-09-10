@@ -14,19 +14,6 @@ ZOOM = 10
 disp_width = 64
 disp_height = 32
 
-window = pygame.display.set_mode((disp_width * ZOOM, disp_height * ZOOM))
-
-root = Tkinter.Tk()
-root.withdraw()
-
-if len(sys.argv) >= 2:
-    filename = sys.argv[1]
-else:
-    filename = tkFileDialog.askopenfilename()
-f = open(filename, 'rb')
-program_data = f.read()
-f.close()
-
 #0,1,2...9,A,B,C,D,E,F
 fontset = [ 0xF0, 0x90, 0x90, 0x90, 0xF0,
             0x20, 0x60, 0x20, 0x20, 0x70,
@@ -62,6 +49,46 @@ key_map = {pygame.K_x: 0x0,
            pygame.K_f: 0xe,
            pygame.K_v: 0xf}
 
+def render_disp():    
+    window.fill(BACK_COLOR)
+    for x in range(len(disp)):
+        for y in range(len(disp[0])):
+            if disp[x][y]:
+                window.fill(FORE_COLOR, (x * ZOOM, y * ZOOM, ZOOM, ZOOM))
+           
+
+def byte_to_list(byte):
+    b = byte
+    l = []
+    for i in range(8):
+        l.append(b & 1)
+        b = b >> 1
+    l.reverse()
+    return l
+
+def print_ch(addr, length):
+    for i in range(length):
+        l = byte_to_list(mem[addr + i])
+        for a in range(len(l)):
+            if l[a] is 1:
+                l[a] = '#'
+            else:
+                l[a] = ' '
+        print ''.join(l)
+
+window = pygame.display.set_mode((disp_width * ZOOM, disp_height * ZOOM))
+
+root = Tkinter.Tk()
+root.withdraw()
+
+if len(sys.argv) >= 2:
+    filename = sys.argv[1]
+else:
+    filename = tkFileDialog.askopenfilename()
+f = open(filename, 'rb')
+program_data = f.read()
+f.close()
+
 code_to_key_map = {}
 for key in key_map:
     code_to_key_map[key_map[key]] = key
@@ -89,23 +116,6 @@ def clear_disp():
     disp = [[0 for y in range(disp_height)] for x in range(disp_width)]
 clear_disp()
 
-def render_disp():    
-    window.fill(BACK_COLOR)
-    for x in range(len(disp)):
-        for y in range(len(disp[0])):
-            if disp[x][y]:
-                window.fill(FORE_COLOR, (x * ZOOM, y * ZOOM, ZOOM, ZOOM))
-           
-
-def byte_to_list(byte):
-    b = byte
-    l = []
-    for i in range(8):
-        l.append(b & 1)
-        b = b >> 1
-    l.reverse()
-    return l
-    
 pc = 0x200
 stack = []
 V = [0 for x in range(0x10)]
@@ -115,16 +125,6 @@ sound_timer = 0
 dirty_screen = False
 last_time = time.time()
 time_elapsed = 0
-
-def print_ch(addr, length):
-    for i in range(length):
-        l = byte_to_list(mem[addr + i])
-        for a in range(len(l)):
-            if l[a] is 1:
-                l[a] = '#'
-            else:
-                l[a] = ' '
-        print ''.join(l)
         
 if MATCH_VBEMU_MODE:
     trace = []
@@ -438,7 +438,3 @@ while True:
             pygame.quit()
             sys.exit()
     time.sleep(0.05)
-            
-
-
-
