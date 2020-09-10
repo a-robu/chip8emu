@@ -12,3 +12,13 @@ Computers that ran CHIP-8 had a hexadecimal keyboard with keys from 1 to F, arra
 This interpreter maps them to QWERTY keyboards as shown in the following drawing.
 
 ![keybindings](keybindings.gif)
+
+# Running from Source
+
+The code is written in Python 2. Install the required dependencies in a _virtualenv_ with the following commands.
+
+```bash
+virtualenv venv
+. venv/bin/activate
+pip install -r requirements.txt 
+```
