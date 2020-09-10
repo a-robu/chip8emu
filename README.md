@@ -9,7 +9,7 @@ For convenience, I included [Zophar's Chip 8 rom pack](https://www.zophar.net/pd
 
 # How to Play
 
-Computers that ran CHIP-8 had a hexadecimal keyboard with keys from 1 to F, arranged in a 4x4 grid.
+Computers that ran CHIP-8 had a hexadecimal keyboard with keys from 1 to F, arranged in a 4 by 4 grid.
 
 This interpreter maps them to QWERTY keyboards as shown in the following drawing.
 
