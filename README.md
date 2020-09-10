@@ -19,9 +19,11 @@ This interpreter maps them to QWERTY keyboards as shown in the following drawing
 
 Each game has its own control scheme. Some of them are shown in the table below for convenience.
 
-| Game     | Actions           | CHIP8 Keys | QWERTY Keys |
-|----------|-------------------|------------|-------------|
-| INVADERS | Left, Fire, Right | 4, 5, 6    | Q, W, E     |
+| Game     | Actions                   | CHIP8 Keys | QWERTY Keys |
+|----------|---------------------------|------------|-------------|
+| INVADERS | Left, Fire, Right         | 4, 5, 6    | Q, W, E     |
+| TETRIS   | Drop, Rotate, Left, Right | 7, 4, 5, 6 | A, Q, W, E  |
+| PONG     | Up, Down for P1, P2       | 1, 4, C, D | 1, Q, 4, R  |
 
 # Running from Source
 
