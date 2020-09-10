@@ -1,6 +1,8 @@
+import os
 import sys
 import random
 import time
+os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
 import pygame
 import Tkinter, tkFileDialog
 import beep
@@ -151,12 +153,16 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
-                print '	'.join([hex(x) for x in range(len(V))])
-                print '	'.join([hex(x) for x in V])
-                print "---"
-                print ('0000000000' + bin(V[0xA])[2:])[-8:]
-                print ('0000000000' + bin(V[0xB])[2:])[-8:]
-                print ('0000000000' + bin(V[0xC])[2:])[-8:]
+                # We do not want this debug information to be printed
+                # automatically, although it could be useful to
+                # make this toggle-able via a command line switch.
+                if False:
+                    print '	'.join([hex(x) for x in range(len(V))])
+                    print '	'.join([hex(x) for x in V])
+                    print "---"
+                    print ('0000000000' + bin(V[0xA])[2:])[-8:]
+                    print ('0000000000' + bin(V[0xB])[2:])[-8:]
+                    print ('0000000000' + bin(V[0xC])[2:])[-8:]
                 sys.exit()
 
         opcode = (mem[pc] << 8) + mem[pc + 1]
