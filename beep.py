@@ -4,6 +4,11 @@ from pygame.locals import *
 import math
 import numpy
 
+# I introduced this scaling factor because the beep used to be very loud.
+# I hand-picked this quantity which is not too loud while it can still be
+# heard clearly.
+AMPLITUDE = 0.15
+
 size = (1366, 720)
 
 bits = 16
@@ -35,8 +40,8 @@ for s in range(n_samples):
     t = float(s)/sample_rate    # time in seconds
 
     #grab the x-coordinate of the sine wave at a given time, while constraining the sample to what our mixer is set to with "bits"
-    buf[s][0] = int(round(max_sample*math.sin(2*math.pi*frequency_l*t)))        # left
-    buf[s][1] = int(round(max_sample*0.5*math.sin(2*math.pi*frequency_r*t)))    # right
+    buf[s][0] = int(round(max_sample*math.sin(2*math.pi*frequency_l*t) * AMPLITUDE))        # left
+    buf[s][1] = int(round(max_sample*0.5*math.sin(2*math.pi*frequency_r*t) * AMPLITUDE))    # right
 
 sound = pygame.sndarray.make_sound(buf)
 #play once, then loop forever
